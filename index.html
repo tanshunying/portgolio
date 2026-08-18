@@ -1,0 +1,1462 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>谈顺颖 作品集</title>
+  <style>
+    :root {
+      --bg: #f4f6f5;
+      --panel: #ffffff;
+      --ink: #171716;
+      --muted: #63645f;
+      --line: rgba(23, 23, 22, 0.12);
+      --line-strong: rgba(23, 23, 22, 0.22);
+      --teal: #0d6f63;
+      --rust: #9a4c2b;
+      --blue: #264f99;
+      --olive: #667a42;
+      --shadow: 0 22px 70px rgba(23, 23, 22, 0.10);
+      --radius: 8px;
+      --intro-width: 650px;
+      --portrait-width: 171px;
+      --hero-gap: 30px;
+      --home-span: calc(var(--intro-width) + var(--hero-gap) + var(--portrait-width));
+      --project-span: 931px;
+      --project-scale: 0.97;
+    }
+
+    * {
+      box-sizing: border-box;
+      letter-spacing: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      min-height: 100vh;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0) 260px),
+        var(--bg);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      line-height: 1.6;
+    }
+
+    img,
+    video {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+      color: inherit;
+    }
+
+    .site-shell {
+      width: min(1180px, calc(100% - 40px));
+      min-height: 100vh;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      width: min(100%, var(--project-span));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      padding: 12px 0 10px;
+      background: linear-gradient(180deg, rgba(244, 246, 245, 0.98), rgba(244, 246, 245, 0.88));
+      border-bottom: 1px solid rgba(23, 23, 22, 0.08);
+      backdrop-filter: blur(18px);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .brand-mark {
+      width: 24px;
+      height: 24px;
+      border: 1px solid var(--line-strong);
+      border-radius: 50%;
+      display: inline-grid;
+      place-items: center;
+      background: var(--panel);
+    }
+
+    .brand-mark::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 7px 0 0 var(--rust), 3.5px 6px 0 var(--blue);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav a {
+      padding: 6px 9px;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      color: var(--muted);
+      font-size: 11.3px;
+    }
+
+    .nav a:hover,
+    .nav a:focus-visible {
+      border-color: var(--line);
+      color: var(--ink);
+      outline: 0;
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    .hero {
+      position: relative;
+      width: min(100%, var(--project-span));
+      margin: 0 auto;
+      min-height: auto;
+      display: grid;
+      grid-template-columns: minmax(0, var(--intro-width)) minmax(0, var(--portrait-width));
+      align-items: center;
+      justify-content: start;
+      gap: var(--hero-gap);
+      padding: clamp(6px, 0.9vw, 10px) 0 clamp(4px, 0.8vw, 8px);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: min(100%, var(--project-span));
+      height: 1px;
+      transform: translateX(-50%);
+      background: var(--line);
+    }
+
+    .hero-copy {
+      align-self: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 4px;
+      color: var(--teal);
+      font-size: 11.8px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      max-width: 780px;
+      margin: 0;
+      font-size: clamp(38.2px, 5.46vw, 76.4px);
+      line-height: 1.02;
+      font-weight: 780;
+      text-wrap: balance;
+    }
+
+    .lead {
+      max-width: var(--intro-width);
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(12.5px, 1.46vw, 14.3px);
+      line-height: 1.34;
+    }
+
+    .lead span {
+      display: block;
+    }
+
+    .profile-meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      justify-items: start;
+      gap: 6px;
+      max-width: var(--intro-width);
+      margin: 4px 0 4px;
+    }
+
+    .profile-meta span {
+      min-height: 34px;
+      width: max-content;
+      max-width: 100%;
+      border-top: 1px solid var(--line-strong);
+      padding-top: 8px;
+      color: var(--ink);
+      font-size: 11.2px;
+      font-weight: 650;
+    }
+
+    .portrait-card {
+      margin: 0;
+      width: min(100%, var(--portrait-width));
+      justify-self: start;
+      display: block;
+    }
+
+    .portrait-card img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      object-position: center;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      background: #dfe6e0;
+    }
+
+    .projects-section {
+      padding: clamp(10px, 1.5vw, 14px) 0 12px;
+    }
+
+    .section-head {
+      display: grid;
+      width: min(100%, var(--project-span));
+      grid-template-columns: 1fr;
+      gap: 0;
+      align-items: start;
+      margin: 0 auto 6px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(28.2px, 3.82vw, 51px);
+      line-height: 1.08;
+      text-wrap: balance;
+    }
+
+    .section-head p {
+      margin-bottom: 0;
+    }
+
+    .project-grid {
+      display: grid;
+      width: min(100%, var(--project-span));
+      margin-inline: auto;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      row-gap: calc(18px * var(--project-scale));
+      column-gap: calc(24px * var(--project-scale));
+    }
+
+    .project-card {
+      min-width: 0;
+      width: 100%;
+      justify-self: stretch;
+      display: grid;
+      gap: calc(9px * var(--project-scale));
+      padding: calc(11px * var(--project-scale));
+      border: 1px solid rgba(23, 23, 22, 0.10);
+      border-radius: calc(22px * var(--project-scale));
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 16px 40px rgba(23, 23, 22, 0.07);
+    }
+
+    .project-head {
+      min-width: 0;
+      margin-bottom: 10px;
+    }
+
+    .project-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: calc(12px * var(--project-scale));
+      min-width: 0;
+    }
+
+    .thumb-button {
+      position: relative;
+      width: 100%;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .thumb-button:focus-visible {
+      outline: 2px solid var(--ink);
+      outline-offset: 4px;
+    }
+
+    .thumb-button img {
+      width: 100%;
+      aspect-ratio: 2 / 1;
+      object-fit: contain;
+      object-position: top center;
+      border-radius: 0;
+      background: #f4f6f5;
+      transition: transform 220ms ease, filter 220ms ease;
+    }
+
+    .thumb-button:hover img {
+      filter: contrast(1.04);
+    }
+
+    .project-title {
+      margin: 0;
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      gap: calc(7px * var(--project-scale));
+      font-size: calc(13.6px * var(--project-scale));
+      line-height: 1.2;
+      font-weight: 720;
+      overflow-wrap: anywhere;
+    }
+
+    .project-title-icon {
+      width: calc(22px * var(--project-scale));
+      height: calc(22px * var(--project-scale));
+      flex: none;
+      display: inline-grid;
+      place-items: center;
+      color: #5a5f68;
+      border: 1px solid rgba(23, 23, 22, 0.08);
+      border-radius: 7px;
+      background: #f5f6f8;
+    }
+
+    .project-title-icon svg {
+      width: calc(14px * var(--project-scale));
+      height: calc(14px * var(--project-scale));
+      stroke-width: 1.85;
+    }
+
+    .project-action {
+      flex: none;
+      min-height: calc(27px * var(--project-scale));
+      padding: calc(4px * var(--project-scale)) calc(10px * var(--project-scale));
+      border: 1px solid #111;
+      border-radius: calc(8px * var(--project-scale));
+      background: #111;
+      color: #fff;
+      font-size: calc(9.2px * var(--project-scale));
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .project-action:hover,
+    .project-action:focus-visible {
+      background: #222;
+      outline: 0;
+    }
+
+    .project-intro {
+      margin: 0;
+      color: var(--muted);
+      font-size: calc(11.2px * var(--project-scale));
+      line-height: 1.34;
+      flex: 1 1 auto;
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .detail-layer {
+      position: fixed;
+      inset: 0;
+      z-index: 80;
+      display: grid;
+      place-items: center;
+      padding: 32px;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .detail-layer.is-open {
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .detail-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(21, 22, 21, 0.42);
+      opacity: 0;
+      transition: opacity 180ms ease;
+    }
+
+    .detail-layer.is-open .detail-backdrop {
+      opacity: 1;
+    }
+
+    .detail-panel {
+      position: relative;
+      width: min(1000px, calc(100vw - 64px));
+      height: calc(100svh - 64px);
+      max-height: calc(100svh - 64px);
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.97);
+      border: 1px solid rgba(23, 23, 22, 0.14);
+      border-radius: 24px;
+      box-shadow: 0 30px 90px rgba(23, 23, 22, 0.18);
+      transform: translateY(18px) scale(0.985);
+      opacity: 0;
+      transition: transform 220ms ease, opacity 220ms ease;
+      z-index: 1;
+    }
+
+    .detail-layer.is-open .detail-panel {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+
+    .detail-inner {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: clamp(16px, 2.6vw, 28px);
+      min-height: 0;
+    }
+
+    .detail-toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 42px;
+      margin: 0 0 12px;
+      padding: 0 0 10px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.94));
+      border-bottom: 1px solid var(--line);
+    }
+
+    .detail-scroll {
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      padding-right: 6px;
+      scrollbar-gutter: stable;
+    }
+
+    .detail-scroll::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    .detail-scroll::-webkit-scrollbar-track {
+      background: transparent;
+      border-radius: 999px;
+    }
+
+    .detail-scroll::-webkit-scrollbar-thumb {
+      min-height: 80px;
+      border: 2px solid rgba(255, 255, 255, 0.97);
+      border-radius: 999px;
+      background: rgba(23, 23, 22, 0.34);
+    }
+
+    .detail-index {
+      color: var(--muted);
+      font-size: 12.8px;
+      font-weight: 650;
+    }
+
+    .icon-button {
+      width: 28px;
+      height: 28px;
+      display: inline-grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+      cursor: pointer;
+    }
+
+    .icon-button:hover,
+    .icon-button:focus-visible {
+      border-color: var(--line-strong);
+      outline: 0;
+    }
+
+    .icon-button svg {
+      width: 14px;
+      height: 14px;
+      stroke-width: 1.8;
+    }
+
+    .detail-hero {
+      display: none;
+    }
+
+    .detail-title {
+      margin: 12px 0 0;
+      font-size: clamp(11.4px, 1.52vw, 17.4px);
+      line-height: 1.08;
+      text-wrap: balance;
+    }
+
+    .detail-intro {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 12.2px;
+      line-height: 1.45;
+    }
+
+    .content-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 28px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .content-head h3 {
+      margin: 0;
+      font-size: 16.4px;
+      line-height: 1.35;
+    }
+
+    .content-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 11.8px;
+    }
+
+    .content-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 14px;
+      padding-bottom: 10px;
+    }
+
+    .content-block {
+      border-top: 1px solid var(--line);
+      padding-top: 12px;
+      display: grid;
+      gap: 6px;
+    }
+
+    .content-open {
+      display: grid;
+      gap: 6px;
+      color: inherit;
+      text-decoration: none;
+      cursor: pointer;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      text-align: left;
+    }
+
+    .content-open:hover .content-media,
+    .content-open:focus-visible .content-media {
+      border-color: var(--line-strong);
+      outline: 0;
+    }
+
+    .content-block h3 {
+      margin: 0;
+      font-size: 11.3px;
+      line-height: 1.35;
+    }
+
+    .content-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12.5px;
+      line-height: 1.45;
+      overflow-wrap: anywhere;
+    }
+
+    .content-note a {
+      color: var(--blue);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .content-block video,
+    .file-preview {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #f0f3f1;
+    }
+
+    .content-image-block {
+      justify-items: stretch;
+    }
+
+    .image-viewer {
+      position: relative;
+      display: grid;
+      justify-items: center;
+      align-items: start;
+      width: 100%;
+      max-height: 72vh;
+      overflow: auto;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #f7f8f7;
+      cursor: zoom-in;
+    }
+
+    .zoom-image {
+      width: min(78%, 760px);
+      max-width: 100%;
+      height: auto;
+      max-height: 60vh;
+      object-fit: contain;
+      border-radius: var(--radius);
+      transition: width 180ms ease, max-height 180ms ease, box-shadow 180ms ease;
+    }
+
+    .content-image-block.is-original .image-viewer {
+      max-height: 82vh;
+      background: rgba(23, 23, 22, 0.03);
+      cursor: zoom-out;
+    }
+
+    .content-image-block.is-original .zoom-image {
+      max-width: none;
+      max-height: none;
+      box-shadow: 0 18px 40px rgba(23, 23, 22, 0.12);
+    }
+
+    .zoom-controls {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 2;
+      display: inline-flex;
+      gap: 6px;
+      padding: 4px;
+      border: 1px solid rgba(23, 23, 22, 0.10);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 10px 28px rgba(23, 23, 22, 0.12);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 160ms ease;
+    }
+
+    .image-viewer:hover .zoom-controls,
+    .image-viewer:focus-within .zoom-controls {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .zoom-button {
+      width: 26px;
+      height: 26px;
+      display: inline-grid;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      background: #111;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .zoom-button:hover,
+    .zoom-button:focus-visible {
+      background: #2a2a2a;
+      outline: 0;
+    }
+
+    .zoom-button svg {
+      width: 14px;
+      height: 14px;
+      stroke-width: 2;
+    }
+
+    .image-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 140;
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr);
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+      background: rgba(18, 18, 17, 0.84);
+      transition: opacity 180ms ease, visibility 180ms ease;
+    }
+
+    .image-lightbox.is-open {
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lightbox-toolbar {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      padding: 18px 22px 10px;
+    }
+
+    .lightbox-button {
+      width: 34px;
+      height: 34px;
+      display: inline-grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.92);
+      color: #111;
+      cursor: pointer;
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.18);
+    }
+
+    .lightbox-button:hover,
+    .lightbox-button:focus-visible {
+      background: #fff;
+      outline: 0;
+    }
+
+    .lightbox-button svg {
+      width: 16px;
+      height: 16px;
+      stroke-width: 2;
+    }
+
+    .lightbox-stage {
+      min-height: 0;
+      overflow: auto;
+      padding: 12px 28px 32px;
+      display: grid;
+      align-items: start;
+      justify-items: center;
+    }
+
+    .lightbox-image {
+      max-width: none;
+      max-height: none;
+      height: auto;
+      border-radius: 6px;
+      background: #fff;
+      box-shadow: 0 26px 80px rgba(0, 0, 0, 0.35);
+      transform-origin: top center;
+    }
+
+    .content-block video {
+      width: 100%;
+      height: auto;
+      max-height: 60vh;
+      object-fit: contain;
+      background: #111;
+    }
+
+    .file-preview {
+      min-height: 120px;
+      display: grid;
+      align-items: center;
+      padding: 16px;
+      overflow: hidden;
+    }
+
+    .file-preview-body {
+      display: grid;
+      gap: 5px;
+      align-content: center;
+    }
+
+    .file-preview {
+      background:
+        linear-gradient(90deg, rgba(13, 111, 99, 0.11), transparent 44%),
+        #f7f8f7;
+    }
+
+    .file-preview-kicker {
+      color: var(--teal);
+      font-size: 12.5px;
+      font-weight: 750;
+    }
+
+    .file-preview-title {
+      margin: 0;
+      font-size: clamp(14.9px, 2.49vw, 21.2px);
+      line-height: 1.12;
+    }
+
+    .site-footer {
+      padding: 10px 0 18px;
+      background: var(--bg);
+      color: var(--muted);
+      font-size: 11.5px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .footer-contact {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .footer-icon {
+      width: 14px;
+      height: 14px;
+      flex: none;
+      color: var(--ink);
+    }
+
+    .empty-link {
+      color: var(--muted);
+      font-size: 16.9px;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (max-width: 980px) {
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .portrait-card {
+        width: min(100%, 430px);
+        justify-self: start;
+      }
+
+      .portrait-card img {
+        height: auto;
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .project-card {
+        width: 100%;
+        justify-self: stretch;
+      }
+
+      .section-head {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .site-shell {
+        width: min(100% - 28px, 1180px);
+      }
+
+      .topbar {
+        align-items: flex-start;
+        padding-top: 16px;
+      }
+
+      .nav {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 38px;
+      }
+
+      .hero h1 {
+        font-size: clamp(26.6px, 9.1vw, 39.2px);
+      }
+
+      .profile-meta {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .profile-meta span {
+        min-height: 0;
+        padding: 12px 0;
+      }
+
+      .portrait-card img {
+        height: auto;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card {
+        width: 100%;
+        justify-self: stretch;
+      }
+
+      .project-title {
+        min-height: auto;
+      }
+
+      .detail-layer {
+        padding: 16px;
+      }
+
+      .detail-panel {
+        width: calc(100vw - 32px);
+        height: calc(100svh - 32px);
+        max-height: calc(100svh - 32px);
+        border-radius: 18px;
+        transform: translateY(14px) scale(0.985);
+      }
+
+      .detail-layer.is-open .detail-panel {
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="#profile" aria-label="回到个人简介">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>谈顺颖 作品集</span>
+      </a>
+    </header>
+
+    <main>
+      <section class="hero" id="profile" aria-label="个人简介">
+        <div class="hero-copy">
+          <p class="eyebrow">个人简介</p>
+          <div class="profile-meta" aria-label="能力关键词">
+            <span>10年+互联网运营经验</span>
+            <span>头部代理商复杂业务</span>
+            <span>AI自动化效率提升10倍</span>
+          </div>
+          <p class="lead">
+            <span>拥有10年+互联网运营经验，精通头部代理商客户复杂业务，具备优秀的产品认知、</span>
+            <span>敏锐的业务嗅觉、出色的跨部门协同，能提供定制化解决方案；擅长AI自动化，</span>
+            <span>主导周报生成、盖章工具，效率提升10倍。</span>
+          </p>
+        </div>
+        <figure class="portrait-card">
+          <img id="portraitImage" alt="个人生活照">
+        </figure>
+      </section>
+
+      <section class="projects-section" id="projects" aria-label="项目模块">
+        <div class="section-head">
+          <p class="eyebrow">精选项目</p>
+        </div>
+        <div class="project-grid" id="projectGrid"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer" aria-label="联系方式">
+      <span class="footer-contact">
+        <svg class="footer-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+          <path d="m3 7 9 6 9-6"></path>
+        </svg>
+        <span>邮箱 cabbage_tsy1@163.com</span>
+      </span>
+      <span class="footer-contact">
+        <svg class="footer-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M7.5 17.5 4 19l1.2-3A6.3 6.3 0 0 1 3 11.4C3 7.8 6.6 5 11 5s8 2.8 8 6.4-3.6 6.4-8 6.4c-1.2 0-2.4-.2-3.5-.7Z"></path>
+          <path d="M9 11h.01"></path>
+          <path d="M13 11h.01"></path>
+        </svg>
+        <span>微信号 sherry0554</span>
+      </span>
+    </footer>
+  </div>
+
+  <div class="detail-layer" id="detailLayer" aria-hidden="true">
+    <div class="detail-backdrop" data-close></div>
+    <aside class="detail-panel" role="dialog" aria-modal="true" aria-labelledby="detailTitle" tabindex="-1">
+      <div class="detail-inner">
+        <div class="detail-toolbar">
+          <span class="detail-index" id="detailIndex"></span>
+          <button class="icon-button" type="button" data-close aria-label="关闭详情">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 6 6 18"></path>
+              <path d="m6 6 12 12"></path>
+            </svg>
+          </button>
+        </div>
+        <div class="detail-scroll" id="detailScroll">
+          <img class="detail-hero" id="detailHero" alt="">
+          <h2 class="detail-title" id="detailTitle"></h2>
+          <p class="detail-intro" id="detailIntro"></p>
+          <div class="content-list" id="contentList"></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="image-lightbox" id="imageLightbox" aria-hidden="true">
+    <div class="lightbox-toolbar">
+      <button class="lightbox-button" type="button" data-lightbox-zoom="out" aria-label="缩小图片"></button>
+      <button class="lightbox-button" type="button" data-lightbox-zoom="reset" aria-label="恢复原图大小"></button>
+      <button class="lightbox-button" type="button" data-lightbox-zoom="in" aria-label="放大图片"></button>
+      <button class="lightbox-button" type="button" data-lightbox-close aria-label="关闭原图"></button>
+    </div>
+    <div class="lightbox-stage" id="lightboxStage">
+      <img class="lightbox-image" id="lightboxImage" alt="">
+    </div>
+  </div>
+
+  <script>
+    function asset(name) {
+      return `assets/${encodeURIComponent(name)}`;
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function fileLabel(path) {
+      const fileName = String(path).split("/").pop() || "";
+      const ext = fileName.includes(".") ? fileName.split(".").pop() : "";
+      const extLower = ext.toLowerCase();
+      if (["doc", "docx", "rtf"].includes(extLower)) return "Word 文档";
+      if (["xls", "xlsx", "csv", "tsv"].includes(extLower)) return "Excel 表格";
+      if (["ppt", "pptx"].includes(extLower)) return "PPT 文件";
+      if (["png", "jpg", "jpeg", "gif", "webp"].includes(extLower)) return "图片文件";
+      if (["mp4", "mov", "webm", "m4v"].includes(extLower)) return "视频文件";
+      return "文件";
+    }
+
+    function icon(name) {
+      if (name === "external") {
+        return `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg>`;
+      }
+      if (name === "download") {
+        return `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path></svg>`;
+      }
+      if (name === "zoom-in") {
+        return `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>`;
+      }
+      if (name === "zoom-out") {
+        return `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path></svg>`;
+      }
+      if (name === "reset") {
+        return `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v6h6"></path><path d="M20 20v-6h-6"></path><path d="M20 9A8 8 0 0 0 6 5.3L4 10"></path><path d="M4 15a8 8 0 0 0 14 3.7L20 14"></path></svg>`;
+      }
+      if (name === "close") {
+        return `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>`;
+      }
+      if (name === "project") {
+        return `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="14" rx="3"></rect><path d="M8 10h8"></path><path d="M8 14h5"></path></svg>`;
+      }
+      if (name === "report") {
+        return `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h8l4 4v12H7z"></path><path d="M15 4v4h4"></path><path d="M10 15v3"></path><path d="M13 12v6"></path><path d="M16 14v4"></path></svg>`;
+      }
+      if (name === "chat") {
+        return `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 6.5h10A3.5 3.5 0 0 1 19 10v2.5A3.5 3.5 0 0 1 15.5 16H12l-4 3v-3H5.5A3.5 3.5 0 0 1 2 12.5V10A3.5 3.5 0 0 1 5.5 6.5z"></path><path d="M8 11h.01"></path><path d="M12 11h.01"></path></svg>`;
+      }
+      if (name === "stamp") {
+        return `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7.5c0-1.4 1.3-2.5 3-2.5s3 1.1 3 2.5c0 1-.6 1.8-1.3 2.4-.8.7-1.2 1.5-1.2 2.6V13H11.5v-.5c0-1.1-.4-1.9-1.2-2.6C9.6 9.3 9 8.5 9 7.5z"></path><path d="M8 13.5h8.5"></path><path d="M7 16.5h10"></path></svg>`;
+      }
+      if (name === "bolt") {
+        return `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 3 5 13h6l-1 8 9-11h-6z"></path></svg>`;
+      }
+      if (name === "play") {
+        return `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"></circle><path d="m10 8 6 4-6 4z"></path></svg>`;
+      }
+      if (name === "broadcast") {
+        return `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1.8"></circle><path d="M8.7 9.7a4.5 4.5 0 0 1 0 4.6"></path><path d="M15.3 9.7a4.5 4.5 0 0 0 0 4.6"></path><path d="M6.7 7.7a8 8 0 0 1 0 8.6"></path><path d="M17.3 7.7a8 8 0 0 0 0 8.6"></path></svg>`;
+      }
+      return `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>`;
+    }
+
+    const profile = {
+      name: "谈顺颖",
+      portraitAlt: "个人生活照",
+      portrait: asset("照片1.png"),
+      bio: "拥有10年+互联网运营经验，精通头部代理商客户复杂业务，具备优秀的产品认知、敏锐的业务嗅觉、出色的跨部门协同，能提供定制化解决方案；擅长AI自动化，主导周报生成、盖章工具，效率提升10倍。",
+      highlights: [
+        "10年+互联网运营经验",
+        "头部代理商复杂业务",
+        "AI自动化效率提升10倍"
+      ]
+    };
+
+    const projects = [
+      {
+        title: "代理商周报自动化",
+        icon: "report",
+        link: "https://ku.baidu-int.com/knowledge/HFVrC7hq1Q/pKzJfZczuc/KWX12ho1YJ/-d587sZNW67pqZ",
+        intro: "数据自动查询-汇总-运算-结构化-推送",
+        detailIntro: "每周自动获取和汇总代理商核心经营数据，并自动制作成标准化周报推送至邮箱，免数小时人工整理，显著提升运营效率与准确性。",
+        thumb: asset("缩略图-1.png"),
+        contents: [
+          { kind: "image", title: "1.1-代理_流程跟进周报_2026-05-08.png", path: asset("1.1-代理_流程跟进周报_2026-05-08.png") },
+          { kind: "image", title: "1.2-代理_框架汇总表_2026-05-08.png", path: asset("1.2-代理_框架汇总表_2026-05-08.png") },
+          { kind: "image", title: "1.3-代理商周报订阅站-服务团队.png", path: asset("1.3-代理商周报订阅站-服务团队.png") },
+          { kind: "image", title: "1.4-邮件推送.png", path: asset("1.4-邮件推送.png") },
+          { kind: "video", title: "1.5-周报自动化-录屏.mp4", path: asset("1.5-周报自动化-录屏.mp4") },
+          { kind: "file", title: "1.6-周报_样例.docx", path: asset("1.6-周报_样例.docx") },
+          { kind: "file", title: "1.7-框架汇总表_样例.xlsx", path: asset("1.7-框架汇总表_样例.xlsx") }
+        ]
+      },
+      {
+        title: "业务洞察与方法论",
+        icon: "chat",
+        link: "https://flow-follows-you.popo.baidu-int.com/",
+        intro: "组织架构/业务痛点/沟通方法论沉淀",
+        detailIntro: "沉淀一套可复用的沟通方法论，覆盖需求对齐、异议处理、结论共识等关键环节，提升跨团队协作效率与沟通质量。",
+        thumb: asset("缩略图-2.png"),
+        contents: [
+          { kind: "image", title: "2.1-代理商经营分析.png", path: asset("2.1-代理商经营分析.png") },
+          { kind: "image", title: "2.2-业务痛点洞察.png", path: asset("2.2-业务痛点洞察.png") },
+          { kind: "image", title: "2.3-沟通方法论.png", path: asset("2.3-沟通方法论.png") }
+        ]
+      },
+      {
+        title: "媒介章申请自动化",
+        icon: "stamp",
+        link: "https://ku.baidu-int.com/knowledge/HFVrC7hq1Q/pKzJfZczuc/KWX12ho1YJ/oWO_nC3sP0J4_T",
+        intro: "需求线上收集→自动填单→结果反馈",
+        detailIntro: "打通媒介章申请全流程，自动填充表单、流转审批、结果反馈，减少人工操作400小时/年，申请周期大幅缩短，流程透明可追溯。",
+        thumb: asset("缩略图-3.png"),
+        contents: [
+          { kind: "image", title: "3.1-流程改造说明.png", path: asset("3.1-流程改造说明.png") },
+          { kind: "image", title: "3.2-自动化前后对比.png", path: asset("3.2-自动化前后对比.png") },
+          { kind: "image", title: "3.3-CMS媒介章自动化流程手册.png", path: asset("3.3-CMS媒介章自动化流程手册.png") }
+        ]
+      },
+      {
+        title: "『知识速通卡』&服务号",
+        icon: "bolt",
+        link: "https://ku.baidu-int.com/knowledge/HFVrC7hq1Q/pKzJfZczuc/KWX12ho1YJ/o7eiwtS7pAQ8cj",
+        intro: "核心业务轻量化知识卡片体系",
+        detailIntro: "为代理商打造轻量化知识卡片体系，并结合服务号持续输出高质量内容，降低学习门槛，帮助新人快速上手。",
+        thumb: asset("缩略图-4.png"),
+        contents: [
+          { kind: "image", title: "4.1-知识速通卡.png", path: asset("4.1-知识速通卡.png") },
+          { kind: "image", title: "4.2-部门服务号.png", path: asset("4.2-部门服务号.png") }
+        ]
+      },
+      {
+        title: "代理商微课-小视频&指引卡",
+        icon: "play",
+        intro: "系统流程标准化培训资料库",
+        detailIntro: "策划并制作系列代理商微课堂视频&指引卡，以短小精炼的形式讲解业务知识、系统操作、AI案例等，形成体系化学习资源库。",
+        thumb: asset("缩略图-5.png"),
+        contents: [
+          { kind: "video", title: "5.1-第4课：天启平台使用秘籍（物料制作篇）.mp4", path: asset("5.1-第4课：天启平台使用秘籍（物料制作篇）.mp4"), videoUrl: "http://ecmb.bdimg.com/cae-legoup-video-target/df7682ec-19af-4054-8e91-c282e5b18c88.mp4" },
+          { kind: "video", title: "5.2-AI提效案例视频.mp4", path: asset("5.2-AI提效案例视频.mp4"), videoUrl: "http://ecmb.bdimg.com/cae-legoup-video-target/f21b49c1-b55e-408f-8869-aae77d012752.mp4" },
+          { kind: "image", title: "5.3-代理商流程指引卡片.png", path: asset("5.3-代理商流程指引卡片.png") }
+        ]
+      },
+      {
+        title: "团队活动策划运营",
+        icon: "broadcast",
+        intro: "创意-组群-调研-采购-互动-比赛",
+        detailIntro: "策划丰富多彩的研讨会和团建，负责创意-物资-宣发-互动-费用，激发团队协作氛围。",
+        thumb: asset("缩略图-6.png"),
+        contents: [
+          { kind: "image", title: "6-活动照片集锦.png", path: asset("6-活动照片集锦.png") }
+        ]
+      }
+    ];
+
+    const $ = (selector) => document.querySelector(selector);
+    const grid = $("#projectGrid");
+    const detailLayer = $("#detailLayer");
+    const detailPanel = $(".detail-panel");
+    const detailScroll = $("#detailScroll");
+    const detailHero = $("#detailHero");
+    const detailTitle = $("#detailTitle");
+    const detailIntro = $("#detailIntro");
+    const detailIndex = $("#detailIndex");
+    const contentList = $("#contentList");
+    const imageLightbox = $("#imageLightbox");
+    const lightboxImage = $("#lightboxImage");
+    const lightboxStage = $("#lightboxStage");
+    let lightboxZoom = 1;
+
+    detailHero.src = asset("缩略图-1.png");
+    detailHero.alt = "代理商周报自动化缩略图";
+
+    document.querySelector("[data-lightbox-zoom='out']").innerHTML = icon("zoom-out");
+    document.querySelector("[data-lightbox-zoom='reset']").innerHTML = icon("reset");
+    document.querySelector("[data-lightbox-zoom='in']").innerHTML = icon("zoom-in");
+    document.querySelector("[data-lightbox-close]").innerHTML = icon("close");
+
+    function renderGrid() {
+      grid.innerHTML = projects.map((project, index) => `
+        <article class="project-card">
+          <button class="thumb-button" type="button" data-project="${index}" aria-label="查看${escapeHtml(project.title)}">
+            <img src="${project.thumb}" alt="${escapeHtml(project.title)}缩略图">
+          </button>
+          <div class="project-head">
+            <h3 class="project-title"><span class="project-title-icon">${icon(project.icon || "project")}</span><span>${escapeHtml(project.title)}</span></h3>
+          </div>
+          <div class="project-foot">
+            <p class="project-intro">${escapeHtml(project.intro)}</p>
+            <button class="project-action" type="button" data-project="${index}">查看更多</button>
+          </div>
+        </article>
+      `).join("");
+
+      grid.querySelectorAll("[data-project]").forEach((button) => {
+        button.addEventListener("click", () => openDetail(Number(button.dataset.project)));
+      });
+    }
+
+    function renderContent(project) {
+      contentList.innerHTML = project.contents.map((item) => {
+        const src = item.path;
+        const title = escapeHtml(item.title);
+
+        if (item.kind === "video") {
+          const videoUrl = item.videoUrl ? escapeHtml(item.videoUrl) : "";
+          return `
+            <section class="content-block">
+              <video controls preload="auto" playsinline muted>
+                <source src="${src}">
+              </video>
+              <h3>${title}</h3>
+              ${videoUrl ? `<p class="content-note">视频地址：<a href="${videoUrl}" target="_blank" rel="noreferrer">${videoUrl}</a></p>` : ""}
+            </section>
+          `;
+        }
+
+        if (item.kind === "image") {
+          return `
+            <section class="content-block content-image-block" data-image-block data-zoom="1">
+              <div class="image-viewer">
+                <div class="zoom-controls" aria-label="图片缩放控制">
+                  <button class="zoom-button" type="button" data-zoom-action="out" aria-label="缩小图片">${icon("zoom-out")}</button>
+                  <button class="zoom-button" type="button" data-zoom-action="reset" aria-label="恢复原图大小">${icon("reset")}</button>
+                  <button class="zoom-button" type="button" data-zoom-action="in" aria-label="放大图片">${icon("zoom-in")}</button>
+                </div>
+                <img class="content-media zoom-image" src="${src}" alt="${title}" loading="lazy" data-zoom-image>
+              </div>
+              <h3>${title}</h3>
+            </section>
+          `;
+        }
+
+        return `
+          <a class="content-block content-open" href="${src}" target="_blank" rel="noreferrer" aria-label="打开${title}">
+            <div class="file-preview content-media">
+              <div class="file-preview-body">
+                <span class="file-preview-kicker">${fileLabel(src)}</span>
+                <span class="file-preview-title">${title}</span>
+              </div>
+            </div>
+          </a>
+        `;
+      }).join("");
+
+      contentList.querySelectorAll("video").forEach((video) => {
+        const prime = () => {
+          try {
+            if (video.currentTime === 0 && Number.isFinite(video.duration) && video.duration > 0) {
+              video.currentTime = Math.min(0.04, video.duration / 100);
+            }
+            video.pause();
+          } catch {
+            // Ignore unsupported seeks in some browsers.
+          }
+        };
+
+        if (video.readyState >= 2) {
+          prime();
+        } else {
+          video.addEventListener("loadeddata", prime, { once: true });
+        }
+      });
+
+      contentList.querySelectorAll("[data-image-block]").forEach((block) => {
+        const image = block.querySelector("[data-zoom-image]");
+
+        const applyZoom = () => {
+          const zoom = Number(block.dataset.zoom || "1");
+          if (block.classList.contains("is-original") && image.naturalWidth) {
+            image.style.width = `${Math.max(220, Math.round(image.naturalWidth * zoom))}px`;
+            image.style.maxWidth = "none";
+            return;
+          }
+
+          image.style.width = "";
+          image.style.maxWidth = "";
+        };
+
+        image.addEventListener("click", () => openLightbox(image.currentSrc || image.src, image.alt));
+        image.addEventListener("load", applyZoom, { once: true });
+
+        block.querySelectorAll("[data-zoom-action]").forEach((control) => {
+          control.addEventListener("click", (event) => {
+            event.stopPropagation();
+            block.classList.add("is-original");
+
+            const current = Number(block.dataset.zoom || "1");
+            const action = control.dataset.zoomAction;
+            let next = current;
+
+            if (action === "in") next = Math.min(3, current + 0.25);
+            if (action === "out") next = Math.max(0.35, current - 0.25);
+            if (action === "reset") next = 1;
+
+            block.dataset.zoom = String(next);
+            applyZoom();
+          });
+        });
+      });
+    }
+
+    function applyLightboxZoom() {
+      const availableWidth = Math.max(260, lightboxStage.clientWidth - 56);
+      lightboxImage.style.width = `${Math.round(availableWidth * lightboxZoom)}px`;
+    }
+
+    function openLightbox(src, alt) {
+      lightboxZoom = 1;
+      lightboxImage.src = src;
+      lightboxImage.alt = alt;
+      imageLightbox.classList.add("is-open");
+      imageLightbox.setAttribute("aria-hidden", "false");
+      lightboxStage.scrollLeft = 0;
+      lightboxStage.scrollTop = 0;
+      requestAnimationFrame(applyLightboxZoom);
+
+      if (lightboxImage.complete) {
+        applyLightboxZoom();
+      } else {
+        lightboxImage.addEventListener("load", applyLightboxZoom, { once: true });
+      }
+    }
+
+    function closeLightbox() {
+      imageLightbox.classList.remove("is-open");
+      imageLightbox.setAttribute("aria-hidden", "true");
+      lightboxImage.removeAttribute("src");
+      lightboxImage.alt = "";
+    }
+
+    document.querySelectorAll("[data-lightbox-zoom]").forEach((control) => {
+      control.addEventListener("click", () => {
+        const action = control.dataset.lightboxZoom;
+        if (action === "in") lightboxZoom = Math.min(4, lightboxZoom + 0.25);
+        if (action === "out") lightboxZoom = Math.max(0.25, lightboxZoom - 0.25);
+        if (action === "reset") lightboxZoom = 1;
+        applyLightboxZoom();
+      });
+    });
+
+    document.querySelector("[data-lightbox-close]").addEventListener("click", closeLightbox);
+
+    lightboxStage.addEventListener("click", (event) => {
+      if (event.target === lightboxStage) {
+        closeLightbox();
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      if (imageLightbox.classList.contains("is-open")) {
+        applyLightboxZoom();
+      }
+    });
+
+    function openDetail(index) {
+      const project = projects[index];
+      detailIndex.textContent = `项目 ${String(index + 1).padStart(2, "0")} / 06`;
+      detailHero.src = project.thumb;
+      detailHero.alt = `${project.title}缩略图`;
+      detailTitle.textContent = project.title;
+      detailIntro.textContent = project.detailIntro || project.intro;
+      renderContent(project);
+      detailScroll.scrollTop = 0;
+      detailLayer.classList.add("is-open");
+      detailLayer.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      detailPanel.focus({ preventScroll: true });
+    }
+
+    function closeDetail() {
+      closeLightbox();
+      detailLayer.classList.remove("is-open");
+      detailLayer.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    document.querySelectorAll("[data-close]").forEach((el) => {
+      el.addEventListener("click", closeDetail);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key !== "Escape") return;
+
+      if (imageLightbox.classList.contains("is-open")) {
+        closeLightbox();
+        return;
+      }
+
+      if (detailLayer.classList.contains("is-open")) {
+        closeDetail();
+      }
+    });
+
+    $("#portraitImage").src = profile.portrait;
+    $("#portraitImage").alt = profile.portraitAlt;
+    renderGrid();
+  </script>
+</body>
+</html>
